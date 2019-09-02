@@ -1,0 +1,46 @@
+//
+//  ProjectStructure-PrefixHeader.pch
+//  ProjectStructure
+//
+//  Created by mac on 2019/8/30.
+//  Copyright © 2019 healifeGroup. All rights reserved.
+//
+
+#ifndef ProjectStructure_PrefixHeader_pch
+#define ProjectStructure_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+
+
+///常用第三方库
+#import <Masonry.h>
+#import <AFNetworking.h>
+#import <MJRefresh/MJRefresh.h>
+#import <MJExtension/MJExtension.h>
+#import <SZTextView/SZTextView.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <SDCycleScrollView/SDCycleScrollView.h>
+#import "DZNWebViewController/DZNWebViewController.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import <CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h>
+
+///其他第三方库
+#import "UIButton+SSEdgeInsets.h"
+#import "UIViewController+Alert.h"
+
+///自定义
+#import "Define.h"
+#import "Classes/Externs/Categories/Categories.h"
+#import "NetWorkRequest.h"
+#import "CommonTypeString.h"
+#import "CommonUtils.h"
+#import "UIViewUtils.h"
+
+#endif /* ProjectStructure_PrefixHeader_pch */
