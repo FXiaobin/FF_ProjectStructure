@@ -88,6 +88,11 @@ NSString * const NewPeopleGuide_PersonCenter = @"NewPeopleGuide_PersonCenter";
     [guide createCoverImageView];
     [toView addSubview:guide];
 
+    if (type == NewPeopleGuideType_Home) {
+        ///添加新手引导页面的时候 欢迎页面还没有消失 因为欢迎页面还要做一个0.25秒的动画后才会消失
+        ///这句代码作用：让新手引导页面添加到滚动欢迎页面的下面 这样滚动欢迎页面就可以做动画了 不然等到滚动欢迎页面结束后再添加新手引导视图则会出现闪动
+        [toView insertSubview:guide atIndex:1];
+    }
 }
 
 -(void)createCoverImageView{
