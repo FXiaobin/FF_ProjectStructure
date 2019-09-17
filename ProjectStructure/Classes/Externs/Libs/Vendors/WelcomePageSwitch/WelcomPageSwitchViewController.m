@@ -42,7 +42,15 @@ NSString * const WelcomPageSwitchViewController_AppVersion = @"WelcomPageSwitchV
     WelcomPageSwitchViewController *vc = [WelcomPageSwitchViewController new];
     vc.guides = images;
     vc.view.frame = [UIScreen mainScreen].bounds;
-    [[UIApplication sharedApplication].keyWindow addSubview:vc.view];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    [window addSubview:vc.view];
+    ///添加欢迎页面的时候 广告页面还没有消失 因为广告页面还要做一个0.25秒的动画后才会消失
+    ///这句代码作用：让滚动欢迎页面添加到广告图的下面 这样广告就可以做动画了 不然等到广告结束后再添加欢迎滚动视图则会出现闪动
+    for (UIView *suv in window.subviews) {
+        if ([suv isKindOfClass:NSClassFromString(@"AdLaunchManager")]) {
+            [window insertSubview:vc.view atIndex:1];
+        }
+    }
     
     [[NSUserDefaults standardUserDefaults] setObject:currentAppVersion forKey:WelcomPageSwitchViewController_AppVersion];
     [[NSUserDefaults standardUserDefaults] synchronize];
