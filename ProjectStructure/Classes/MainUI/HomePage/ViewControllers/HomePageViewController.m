@@ -57,12 +57,18 @@
    DDLog(@"username = %@",newuser.username);
     
     
-    [WelcomPageSwitchViewController showWelcomPageSwitchViewControllerWithGuideImages:@[@"guide_01",@"guide_02",@"guide_03",@"guide_04"] completed:^{
-        DDLog(@" ------ completed ----- ");
+    [[AdLaunchManager shareManagre] showAdLaunchImageViewWithUrl:@"http://img1.imgtn.bdimg.com/it/u=3199370898,1904291699&fm=11&gp=0.jpg" countDownType:AdLaunchManagerCountDownType_RoundBackProgress completed:^{
+       
+        DDLog(@" ------ 广告页面消失 ----- ");
         
-        [NewPeopleGuide showNewPeopleGuideWithType:NewPeopleGuideType_Home];
+        [WelcomPageSwitchViewController showWelcomPageSwitchViewControllerWithGuideImages:@[@"guide_01",@"guide_02",@"guide_03",@"guide_04"] completed:^{
+            DDLog(@" ------ 欢迎滚动视图消失 ----- ");
+            
+            [NewPeopleGuide showNewPeopleGuideWithType:NewPeopleGuideType_Home];
+        }];
+
+        
     }];
-    
     
 }
 
